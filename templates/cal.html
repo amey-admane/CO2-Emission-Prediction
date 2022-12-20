@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Website Carbon Foot-Print</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scrollbar-base-color: rgb(26, 201, 26);
+    scrollbar-arrow-color: green;
+    box-sizing: border-box;
+}
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('static/background.png');
+    background-repeat: repeat;
+    background-size: cover;
+    
+    border: 0;
+}
+
+
+.textDiv {
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    text-align: center;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 50vw;
+    height: 70vh;
+    /* background-color: transparent; */
+    font-family: 'Maitree', serif;
+    transform: scale(1);
+    visibility: visible;
+    animation-delay: 3s;
+}
+
+.textDiv h1 {
+    position: absolute;
+    top: 20%;
+    font-size: 3rem;
+    font-weight: bolder;
+}
+
+.home-title span {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    line-height: 1.2;
+}
+
+.home-title span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: a-ltr-after 4s cubic-bezier(.77, 0, .18, 1) forwards infinite;
+    transform: translateX(-101%);
+}
+
+.home-title span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: a-ltr-before 3s cubic-bezier(.77, 0, .18, 1) forwards infinite;
+    transform: translateX(0);
+}
+
+.home-title span:nth-of-type(1)::before,
+.home-title span:nth-of-type(1)::after {
+    animation-delay: 1.2s;
+}
+
+.home-title span:nth-of-type(2)::before,
+.home-title span:nth-of-type(2)::after {
+    animation-delay: 1.5s;
+}
+
+@keyframes a-ltr-after {
+    0% {
+        transform: translateX(-100%)
+    }
+
+    100% {
+        transform: translateX(101%)
+    }
+}
+
+@keyframes a-ltr-before {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(200%)
+    }
+}
+
+
+.button {
+    position: absolute;
+    top: 70%;
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.button:hover,
+.button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.button:hover::before,
+.button:focus::before {
+    opacity: 1;
+}
+
+.button::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tree-cal {
+    position: fixed;
+    top: 30%;
+    left: 52%;
+    text-align: center;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 40vw;
+    height: 90vh;
+}
+
+.tree-cal h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.tree-cal .user-box {
+    position: relative;
+}
+.tree-cal img{
+    position: absolute;
+    left: 40%;
+    top: 10%;
+    height: auto;
+    width: auto;
+}
+.tree-cal .user-box input {
+    width: 50%;
+    padding: 60px 0px 10px 0px;
+    font-size: 20px;
+    color: #fff;
+    margin-left: -50px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    text-align: center;
+}
+
+.tree-cal .user-box label {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    /* padding: -50px 0px; */
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+/* .tree-cal .user-box input:focus~label,
+.tree-cal .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+} */
+
+
+.tree-cal .btn {
+    padding: 15px 40px;
+    background: rgb(75, 234, 229);
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+
+    display: block;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+.login-box {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #B0B0B0;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 10px #bebebe,
+        -10px -10px 30px #ffffff;
+    border-radius: 30px;
+    transform: scale(0);
+    visibility: hidden;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bolder;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+.login-box img{
+    position: absolute;
+    left: 40%;
+    top: 10%;
+    height: auto;
+    width: auto;
+}
+.login-box .user-box input {
+    position: center;
+    width: 40%;
+    padding: 50px 0px;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin-left: 30%;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+
+.login-box .btn {
+    padding: 15px 40px;
+    background: rgb(75, 234, 229);
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+
+    display: block;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+.login-box .btn::after,
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.login-box .btn::after {
+    width: 30px;
+    height: 1px;
+    background: white;
+    transform: translateX(-3px);
+    margin-top: 0px;
+}
+
+.login-box .btn::before {
+    content: "";
+    transform: rotate(-135deg) translateX(50%);
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-top: -1px;
+}
+
+
+.login-box .btn:hover {
+    padding: 15px 60px 15px 20px;
+}
+
+.login-box .btn:hover::after,
+.btn:hover::before {
+    opacity: 1;
+    right: 15px;
+}
+
+.card{
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    
+    transition: 0.3s;
+    border-radius: 5px; 
+    }
+  
+
+  img {
+    border-radius: 10px 10px 10px 10px;
+  }
+
+.card h3 {
+    position: relative;
+    color: white;
+    left: 100px;
+    top: 200px;
+    line-height: 26pt;
+    background: #7c7979;
+    box-shadow: 10px 10px 10px #bebebe,-10px -10px 30px #ffffff;
+    border-radius: 6px;
+    width: max-content;
+    text-align: center;
+}
+
+</style>
+<body>
+
+    <div class="textDiv">
+        <h1 class="home-title">
+            <span>TREE CALCULATOR</span>
+        </h1>
+        
+
+        <!-- <button class="button" onclick="openPopup()">Fill Form</button> -->
+    </div>
+
+    <div class="card">
+        <img src="static/savetree.png" alt="Avatar" style="width:30%; left: 12%; top: 100px;position: relative;">
+        <div class="container">
+          <!-- <h3>The best time to plant a tree was 20 years ago. The second best time is NOW<br> -->
+            <h3>The true meaning of life is to plant trees, under whose shade you do not expect to sit</h3>
+        </div>
+    </div>
+
+    <div class="tree-cal" id="treeDiv">
+        
+        {% if formsd == 'show' %}
+            <form action="" method="post">
+                
+                <div class="user-box">
+                    <input type="text" name="co2tocal" required="" id="carbon">
+                    <label>Enter your CO2 consumption<br>(in kg)</label>
+                </div>
+                
+                <button class="btn" >Calculate trees required</button>
+            </form>
+        {% else %}
+        <div style="display:block;position: relative; top: -20%; ">
+            {% if mi == 'yes' %} <p style="top: 35%; font-weight:bolder; font-size: 30px; font-family: 'Maitree', serif;">CO2 per capita predicted {{percoemitted}} {% if calculator == 'show' %} Kg {% else %} Billion tonnes {% endif %}</p>
+            <br>
+            {% endif %}
+            <p style="top: 35%; font-weight:bolder; font-size: 30px; font-family: 'Maitree', serif;">CO2 emitted {{coemitted}} {% if calculator == 'show' %} Kg {% else %} Billion tonnes {% endif %}</p>
+            <br>
+            <p style="top: 35%; font-weight:bolder; font-size: 30px; font-family:'Maitree', serif;">Trees to be planted {{value}}</p>
+        
+
+        </div>
+        
+        
+        {% endif %}
+    </div>
+    
+    <div class="login-box" id="login-box">
+        <!-- <img src="images/read.png"> -->
+        <h2>Trees to be planted</h2>
+        <form>
+            
+            <div class="user-box">
+                <input type="text" id="coreq">
+            </div>
+            
+            <!-- <button class="btn">Find out the trees required</button> -->
+        </form>
+    </div>
+
+
+
+    <script src="js/script.js"></script>
+</body>
+
+<script>
+
+
+// function treeReq(){
+//     var amt = document.getElementById("carbon").value;
+//     const hideText = document.getElementById('treeDiv')
+//     const revealForm = document.getElementById('login-box')
+//     hideText.setAttribute('style', 'transform: scale(0);visibility: hidden;')
+//     revealForm.setAttribute('style', 'transform: scale(1);visibility: visible;')
+
+//     var tr=(amt/1000)*38;
+//     document.getElementById("coreq").value=tr;
+// }
+
+</script>
+</html>

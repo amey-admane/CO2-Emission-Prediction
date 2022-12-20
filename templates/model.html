@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Website Carbon Foot-Print</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+</head>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scrollbar-base-color: rgb(26, 201, 26);
+    scrollbar-arrow-color: green;
+    box-sizing: border-box;
+}
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('static/background.png');
+    background-repeat: repeat;
+    background-size: cover;
+    border: 0;
+}
+
+.image{
+    position: absolute;
+    top: 30%;
+    left: 12%;
+    width: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('static/projectImage1.gif') ;
+    background-repeat: repeat;
+    background-size: cover;
+    transform: scale(1);
+    visibility: visible;
+}
+
+
+.textDiv {
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    text-align: center;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+    width: 50vw;
+    height: 70vh;
+    background-color: transparent;
+    font-family: 'Maitree', serif;
+    transform: scale(1);
+    visibility: visible;
+    animation-delay: 3s;
+}
+
+.textDiv h1 {
+    position: absolute;
+    top: 6%;
+    font-size: 3rem;
+    font-weight: bolder;
+}
+
+.home-title span {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    line-height: 1.2;
+}
+
+.home-title span::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: a-ltr-after 4s cubic-bezier(.77, 0, .18, 1) forwards infinite;
+    transform: translateX(-101%);
+}
+
+.home-title span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: a-ltr-before 3s cubic-bezier(.77, 0, .18, 1) forwards infinite;
+    transform: translateX(0);
+}
+
+.home-title span:nth-of-type(1)::before,
+.home-title span:nth-of-type(1)::after {
+    animation-delay: 1.2s;
+}
+
+.home-title span:nth-of-type(2)::before,
+.home-title span:nth-of-type(2)::after {
+    animation-delay: 1.5s;
+}
+
+@keyframes a-ltr-after {
+    0% {
+        transform: translateX(-100%)
+    }
+
+    100% {
+        transform: translateX(101%)
+    }
+}
+
+@keyframes a-ltr-before {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(200%)
+    }
+}
+
+
+.button {
+    position: absolute;
+    top: 60%;
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.buttonNew{
+    top: 80%;
+}
+
+
+.buttonNewn{
+    top: 100%;
+    position: relative;
+    /* left: 3%; */
+}
+
+.button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.button:hover,
+.button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.button:hover::before,
+.button:focus::before {
+    opacity: 1;
+}
+
+.button::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-box-modify form{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+}
+
+.login-box-modify .user-box input{
+    width: 100%;
+}
+
+.login-box {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .4);
+    box-sizing: border-box;
+    box-shadow: 10px 10px 10px #bebebe,
+        -10px -10px 30px #ffffff;
+    border-radius: 30px;
+    transform: scale(0);
+    visibility: hidden;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+.login-box img{
+    position: absolute;
+    left: 40%;
+    top: 10%;
+    height: auto;
+    width: auto;
+}
+.login-box .user-box input {
+    width: 40%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+
+.login-box .btn {
+    padding: 15px 40px;
+    background: rgb(75, 234, 229);
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    display: block;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+
+.login-box .btnnext {
+    padding: 15px 40px;
+    background: rgb(75, 234, 229);
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: helvetica;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    top:15%;
+    right:98%;
+    display: block;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+
+
+.login-box .btn::after,
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.login-box .btnnext::after,
+.btnnext::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.login-box .btn::after {
+    width: 30px;
+    height: 1px;
+    background: white;
+    transform: translateX(-3px);
+    margin-top: 0px;
+}
+
+.login-box .btnnext::after {
+    width: 30px;
+    height: 1px;
+    background: white;
+    transform: translateX(-3px);
+    margin-top: 0px;
+}
+
+.login-box .btn::before {
+    content: "";
+    transform: rotate(-135deg) translateX(50%);
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-top: -1px;
+}
+
+.login-box .btnnext::before {
+    content: "";
+    transform: rotate(-135deg) translateX(50%);
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-top: -1px;
+}
+
+.login-box .btn:hover {
+    padding: 15px 60px 15px 20px;
+}
+.login-box .btnnext:hover {
+    padding: 15px 60px 15px 20px;
+}
+
+.login-box .btn:hover::after,
+.btn:hover::before {
+    opacity: 1;
+    right: 15px;
+}
+.login-box .btnnext:hover::after,
+.btnnext:hover::before {
+    opacity: 1;
+    right: 15px;
+}
+
+
+.login-box-modify{
+    height: auto;
+}
+
+</style>
+<body>
+    <div class="image" id="image">
+    </div>
+
+    <div class="textDiv" id="textDiv">
+        <h1 class="home-title">
+            <span>The best time to plant a tree is 20 years ago. </span>
+            <span>The second best time is now. </span>
+        </h1>
+
+        <button class="button" onclick="openPopup()">CFP Calculator</button>
+        <button class="button buttonNew" onclick="openPopupNew()">Predict CO2 Emission </button>
+        <a href='/cal' style="text-decoration: none; color: black; "><button class="button buttonNewn">Trees Calualtor</button></a>
+    </div>
+
+
+    <div class="login-box" id="login-box">
+        <h2>Carbon-Footprint Calculator</h2>
+        <img src="static/read.png">
+        <form action="" method="post">
+            <div class="user-box">
+                <input type="text" id = "elecbill" name="elecbill" required="">
+                <label>Enter the Electric Bill Amount:</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id = "gasbill" name="gasbill" required="">
+                <label>Enter the Gas Bill Amount:</label>
+            </div>
+            <div class="user-box">
+                <input type="text"  id = "oilbill" name="oilbill" required="">
+                <label>Enter the Oil Bill Amount:</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id = "yearmilage"   name="yearmilage" required="">
+                <label>Enter the Vehical Mileage Amount: </label>
+            </div>
+            <div class="user-box">
+                <input type="text"  id = "currency" name="currency" required="" placeholder="EUR,IND,USD">
+                <label>Enter the Currency:</label>
+            </div>
+            <button class="btn">Submit form</button>
+        </form>
+    </div>
+
+    <div class="login-box login-box-modify" id="login-box-new">
+        <h2>Co2 Emission Prediction</h2>
+        <!-- <img src="static/read.png"> -->
+        <form action='' method="post">
+            <div class="user-box">
+                <input type="text" name="oil_co2" required="">
+                <label>Oil_co2</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="oil_co2_per_capita" required="">
+                <label>Oil_co2_per_capita</label>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="co2_growth_predt" required="">
+                <label>Co2_growth_prct</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="co2_growth_abs" required="">
+                <label>Co2_growth_abs</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="cumulative_co2" required="">
+                <label>Cumulative_co2</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="cumulative_oil_co2" required="">
+                <label>Cumulative_oil_co2</label>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="share_global_co2" required="">
+                <label>Share_global_co2</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="share_global_oil_co2" required="">
+                <label>Share_global_oil_co2</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="share_global_cumulative_co2" required="">
+                <label>Share_global_cumulative_co2</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="share_global_cumulative_oil_co2" required="">
+                <label>Share_global_cumulative_oil_co2</label>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="population" required="">
+                <label>Population</label>
+            </div>
+            
+            
+
+            <button class="btnnext">Submit form</button>
+        </form>
+    </div>
+
+
+</body>
+<script>
+
+    
+
+function openPopup(){
+    const hideText = document.getElementById('textDiv')
+    const revealForm = document.getElementById('login-box')
+    const img = document.getElementById('image')
+
+
+    hideText.setAttribute('style', 'transform: scale(0);visibility: hidden;')
+    revealForm.setAttribute('style', 'transform: scale(1);visibility: visible;')
+    img.setAttribute('style', 'transform: scale(0);visibility: hidden;')
+}
+
+function openPopupNew(){
+    const hideText = document.getElementById('textDiv')
+    const revealFormNew = document.getElementById('login-box-new')
+    const img = document.getElementById('image')
+
+    hideText.setAttribute('style', 'transform: scale(0);visibility: hidden;')
+    revealFormNew.setAttribute('style', 'transform: scale(1);visibility: visible;')
+    img.setAttribute('style', 'transform: scale(0);visibility: hidden;')
+
+}
+
+</script>
+</html>
